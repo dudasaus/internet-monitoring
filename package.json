@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npx tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.11.27",
+    "@types/ping": "^0.4.4",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "ping": "^0.4.4"
+  }
+}
