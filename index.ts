@@ -30,12 +30,24 @@ async function startConnectionMonitor() {
   });
 
   do {
+    console.error("Checking at:", Date());
+    const start = performance.now();
     const result = await checkConnectionOnce();
     if (result !== lastResult) {
       logResult(result);
     }
     lastResult = result;
+    let duration = performance.now() - start;
+    if (duration < 10 * 1000) {
+      await wait(10 * 1000 - duration);
+    }
   } while (run);
+}
+
+function wait(ms: number): Promise<void> {
+  return new Promise((res) => {
+    setTimeout(res, ms);
+  });
 }
 
 function pingResultToString(result: PingResult): string {
