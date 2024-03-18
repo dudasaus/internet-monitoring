@@ -30,7 +30,6 @@ async function startConnectionMonitor() {
   });
 
   do {
-    console.error("Checking at:", Date());
     const start = performance.now();
     const result = await checkConnectionOnce();
     if (result !== lastResult) {
